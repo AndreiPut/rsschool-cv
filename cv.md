@@ -24,7 +24,41 @@ Resistant to stress, ready to work in conditions of lack of personnel and resour
 3. Advanced training courses in ecg diagnostics
 *(February 2016)*
 4. Advanced training courses in medical rehabilitation
+for (int i = 0; i < n2; i = 1 + i)
+            {
+                for (int j = 0; j < n2; j = 1 + j)
+                    if (mtx[i + j * n2] == 1)
+                    {
+                        e.Graphics.DrawLine(p1, pos[i * 2], pos[i * 2 + 1], pos[j * 2], pos[j * 2 + 1]);//линии
+                    }
+            }
 
+
+            for (int i = 0; i <= n2 * 2 - 1; i = i + 2)
+            {
+                e.Graphics.DrawEllipse(p, pos[i] - 10, pos[i + 1] - 10, 20, 20);// создание кружков
+            }
+
+            //выделение круга фикс
+            if (sel >= -1)
+            {
+                for (int i = 0; i < n2; i++)
+                {
+                    int dx = x - pos[i * 2];
+                    int dy = y - pos[i * 2 + 1];
+                    if (dx * dx + dy * dy <= 20 * 20)
+                    {
+                        e.Graphics.DrawEllipse(p2, pos[i * 2] - 20, pos[i * 2 + 1] - 20, 40, 40);//желтый
+                        break;
+                    }
+
+                }
+            }
+            //выделение круга при удалении
+            if (yx >= 0 || vid == 1)
+            {
+                e.Graphics.DrawEllipse(p3, pos[yx * 2] - 20, pos[yx * 2 + 1] - 20, 40, 40);//синий
+                vid = 1;
 ## Professional work history ##
 ### Permanent emloyment ###
 - General practitioner, Podleskaya outpatient department of general medical practice head
